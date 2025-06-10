@@ -5,6 +5,7 @@ const { MongoClient } = require('mongodb');
 
 const app = express();
 app.use(express.json());
+app.use(cors(corsOptions));
 
 const allowedOrigins = [
   'https://lakesregionjr.com',
