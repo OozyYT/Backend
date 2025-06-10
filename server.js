@@ -16,7 +16,7 @@ let statsCollection;
 
 async function connectDB() {
   await client.connect();
-  db = client.db('junkremoval'); // Use your database name
+  db = client.db('videoData'); // Use your database name
   statsCollection = db.collection('stats');
   console.log('Connected to MongoDB');
 }
