@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: ['https://lakesregionjr.com', 'http://137.103.107.214:80'], // add your deployed and local dev URLs
+  origin: ['https://lakesregionjr.com'], // add your deployed and local dev URLs
   methods: ['GET', 'POST'],
   credentials: false
 };
