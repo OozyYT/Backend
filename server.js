@@ -6,10 +6,22 @@ const { MongoClient } = require('mongodb');
 const app = express();
 app.use(express.json());
 
+const allowedOrigins = [
+  'https://lakesregionjr.com',
+];
+
 const corsOptions = {
-  origin: ['https://lakesregionjr.com'], // add your deployed and local dev URLs
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST'],
-  credentials: false
+  credentials: false,
 };
 app.use(cors(corsOptions));
 
