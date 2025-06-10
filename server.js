@@ -4,10 +4,11 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
 const app = express();
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const allowedOrigins = [
-  'https://lakesregionjr.com',
+  'https://lakesregionjr.com/video.html',
 ];
 
 const corsOptions = {
@@ -22,8 +23,9 @@ const corsOptions = {
   },
   methods: ['GET', 'POST'],
   credentials: false,
+  optsionsSuccessStatus: 200,
 };
-app.use(cors(corsOptions));
+
 
 // Replace with your actual MongoDB Atlas connection string
 const uri = 'mongodb+srv://isandhage1:Celtics12#@lakesregionjr.u0s4cew.mongodb.net/?retryWrites=true&w=majority&appName=LakesRegionJR';
